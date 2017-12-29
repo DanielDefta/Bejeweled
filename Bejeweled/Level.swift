@@ -264,7 +264,7 @@ class Level {
     }
     
     private func detectSpecialMatches(_ swap: Swap) -> Set<Chain> {
-        let chain = Chain(chainType: .horizontal)
+        let chain = Chain(chainType: .speciaal)
         var star: Star!
         if swap.starA.starType != StarType.speciaal {
             star = swap.starA

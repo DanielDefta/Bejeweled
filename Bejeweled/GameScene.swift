@@ -242,11 +242,11 @@ class GameScene: SKScene {
         let duration: TimeInterval = 0.3
         
         let moveA = SKAction.move(to: spriteB.position, duration: duration)
-        moveA.timingMode = .easeOut
+        moveA.timingMode = .easeIn
         spriteA.run(moveA, completion: completion)
         
         let moveB = SKAction.move(to: spriteA.position, duration: duration)
-        moveB.timingMode = .easeOut
+        moveB.timingMode = .easeIn
         spriteB.run(moveB)
         
         timeSinceLastCorrectSwipe = 10.0
@@ -262,10 +262,10 @@ class GameScene: SKScene {
         let duration: TimeInterval = 0.2
         
         let moveA = SKAction.move(to: spriteB.position, duration: duration)
-        moveA.timingMode = .easeOut
+        moveA.timingMode = .easeIn
         
         let moveB = SKAction.move(to: spriteA.position, duration: duration)
-        moveB.timingMode = .easeOut
+        moveB.timingMode = .easeIn
         
         spriteA.run(SKAction.sequence([moveA, moveB]), completion: completion)
         spriteB.run(SKAction.sequence([moveB, moveA]))
@@ -280,7 +280,7 @@ class GameScene: SKScene {
                 if let sprite = star.sprite {
                     if sprite.action(forKey: "removing") == nil {
                         let scaleAction = SKAction.scale(to: 0.1, duration: 0.3)
-                        scaleAction.timingMode = .easeOut
+                        scaleAction.timingMode = .easeIn
                         sprite.run(SKAction.sequence([scaleAction, SKAction.removeFromParent()]),
                                    withKey:"removing")
                     }
@@ -305,7 +305,7 @@ class GameScene: SKScene {
                 longestDuration = max(longestDuration, duration + delay)
                 // 5
                 let moveAction = SKAction.move(to: newPosition, duration: duration)
-                moveAction.timingMode = .easeOut
+                moveAction.timingMode = .easeIn
                 sprite.run(
                     SKAction.sequence([
                         SKAction.wait(forDuration: delay),
@@ -333,14 +333,14 @@ class GameScene: SKScene {
                 starsLayer.addChild(sprite)
                 star.sprite = sprite
                 // 4
-                let delay = 0.2 * TimeInterval(array.count - idx - 1)
+                let delay = 0.15 * TimeInterval(array.count - idx - 1)
                 // 5
                 let duration = TimeInterval(startRow - star.row) * 0.1
                 longestDuration = max(longestDuration, duration + delay)
                 // 6
                 let newPosition = pointFor(column: star.column, row: star.row)
                 let moveAction = SKAction.move(to: newPosition, duration: duration)
-                moveAction.timingMode = .easeOut
+                moveAction.timingMode = .easeIn
                 sprite.alpha = 0
                 sprite.run(
                     SKAction.sequence([
@@ -365,16 +365,26 @@ class GameScene: SKScene {
     }
     
     func animateScore(for chain: Chain) {
-        // Figure out what the midpoint of the chain is.
-        let firstSprite = chain.firstStar().sprite!
-        let lastSprite = chain.lastStar().sprite!
-        let centerPosition = CGPoint(
-            x: (firstSprite.position.x + lastSprite.position.x)/2,
-            y: (firstSprite.position.y + lastSprite.position.y)/2 - 8)
+        var centerPosition = CGPoint()
+        let scoreLabel = SKLabelNode(fontNamed: "Gill Sans UltraBold")
+        
+        
+        if chain.chainType != .speciaal {
+            // Figure out what the midpoint of the chain is.
+            let firstSprite = chain.firstStar().sprite!
+            let lastSprite = chain.lastStar().sprite!
+            scoreLabel.fontSize = 17
+            centerPosition = CGPoint(
+                x: (firstSprite.position.x + lastSprite.position.x)/2,
+                y: (firstSprite.position.y + lastSprite.position.y)/2 - 8)
+        }
+        else {
+            
+            scoreLabel.fontSize = 30
+            centerPosition = CGPoint(x: 4*TileWidth + TileWidth/2, y: 4*TileHeight)
+        }
         
         // Add a label for the score that slowly floats up.
-        let scoreLabel = SKLabelNode(fontNamed: "Gill Sans UltraBold")
-        scoreLabel.fontSize = 17
         scoreLabel.text = String(format: "%ld", chain.score)
         scoreLabel.position = centerPosition
         scoreLabel.zPosition = 300

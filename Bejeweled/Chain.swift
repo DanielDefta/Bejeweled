@@ -14,11 +14,13 @@ class Chain: Hashable, CustomStringConvertible {
     enum ChainType: CustomStringConvertible {
         case horizontal
         case vertical
+        case speciaal
         
         var description: String {
             switch self {
             case .horizontal: return "Horizontal"
             case .vertical: return "Vertical"
+            case .speciaal: return "Speciaal"
             }
         }
     }

@@ -130,17 +130,18 @@ class GameViewController: UIViewController {
             return
         }
         scene.animateMatchedStars(for: chains) {
-            for chain in chains {
-                self.score += chain.score
-                self.tScore += chain.score
-            }
-            self.updateLabels()
-            let columns = self.level.fillHoles()
-            self.scene.animateFallingStars(columns: columns) {
-                let columns = self.level.topUpStars()
-                self.scene.animateNewStars(columns) {
-                    self.handleMatches()
-                }
+            
+        }
+        for chain in chains {
+            self.score += chain.score
+            self.tScore += chain.score
+        }
+        self.updateLabels()
+        let columns = self.level.fillHoles()
+        self.scene.animateFallingStars(columns: columns) {
+            let columns = self.level.topUpStars()
+            self.scene.animateNewStars(columns) {
+                self.handleMatches()
             }
         }
     }
@@ -153,17 +154,17 @@ class GameViewController: UIViewController {
             return
         }
         scene.animateMatchedStars(for: chains) {
-            for chain in chains {
-                self.score += chain.score
-                self.tScore += chain.score
-            }
-            self.updateLabels()
-            let columns = self.level.fillHoles()
-            self.scene.animateFallingStars(columns: columns) {
-                let columns = self.level.topUpStars()
-                self.scene.animateNewStars(columns) {
-                    self.handleMatches()
-                }
+        }
+        for chain in chains {
+            self.score += chain.score
+            self.tScore += chain.score
+        }
+        self.updateLabels()
+        let columns = self.level.fillHoles()
+        self.scene.animateFallingStars(columns: columns) {
+            let columns = self.level.topUpStars()
+            self.scene.animateNewStars(columns) {
+                self.handleMatches()
             }
         }
     }
@@ -236,5 +237,18 @@ class GameViewController: UIViewController {
         scene.isUserInteractionEnabled = true
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectLevel" {
+            _ = segue.destination as! LevelSelectionViewController
+        } else if segue.identifier == "startGame" {
+            _ = segue.destination as! GameViewController
+        } else if segue.identifier == "showMainMenu" {
+            _ = segue.destination as! MainViewController
+        } else {
+            fatalError("Unknown segue")
+        }
+        
+    }
     
 }

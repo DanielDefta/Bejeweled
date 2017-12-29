@@ -22,6 +22,7 @@ import UIKit
         layer.backgroundColor = bgColor.cgColor
         frame.size.width = rect.size.width * scaleContent
         frame.size.height = rect.size.height * scaleContent
+        
 
     }
 

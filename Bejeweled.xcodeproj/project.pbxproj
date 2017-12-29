@@ -36,7 +36,6 @@
 		E2B5A2F91FE81487006DD51E /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5A2F81FE81487006DD51E /* Tile.swift */; };
 		E2B5A2FB1FE814DD006DD51E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5A2FA1FE814DD006DD51E /* Extensions.swift */; };
 		E2BC8EB31FF2C51100F5BA75 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC8EB21FF2C51100F5BA75 /* MusicPlayer.swift */; };
-		E2BC8EB51FF2D11600F5BA75 /* MyUIProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC8EB41FF2D11600F5BA75 /* MyUIProgressView.swift */; };
 		E2BC8EB71FF309D800F5BA75 /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BC8EB61FF309D800F5BA75 /* Level_2.json */; };
 		E2BC8EB91FF30A2100F5BA75 /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BC8EB81FF30A2100F5BA75 /* Level_3.json */; };
 		E2BC8EBB1FF30A4400F5BA75 /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BC8EBA1FF30A4400F5BA75 /* Level_4.json */; };
@@ -108,7 +107,6 @@
 		E2B5A2F81FE81487006DD51E /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		E2B5A2FA1FE814DD006DD51E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E2BC8EB21FF2C51100F5BA75 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
-		E2BC8EB41FF2D11600F5BA75 /* MyUIProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUIProgressView.swift; sourceTree = "<group>"; };
 		E2BC8EB61FF309D800F5BA75 /* Level_2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level_2.json; sourceTree = "<group>"; };
 		E2BC8EB81FF30A2100F5BA75 /* Level_3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level_3.json; sourceTree = "<group>"; };
 		E2BC8EBA1FF30A4400F5BA75 /* Level_4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				E2B5A2FA1FE814DD006DD51E /* Extensions.swift */,
 				E2AF30AB1FEE8B84000318C0 /* LevelCollectionViewCell.swift */,
 				E2AF30AD1FEEBCFA000318C0 /* MyUIButton.swift */,
-				E2BC8EB41FF2D11600F5BA75 /* MyUIProgressView.swift */,
 				E2B5A2FC1FE81696006DD51E /* Levels */,
 				E22902321FE8404000E84E17 /* Sounds */,
 				E2B5A2DA1FE8116C006DD51E /* Sprites.atlas */,
@@ -421,7 +418,6 @@
 				E2B5A2A51FE7FFA4006DD51E /* GameScene.swift in Sources */,
 				E2AF30AC1FEE8B84000318C0 /* LevelCollectionViewCell.swift in Sources */,
 				E2B5A2A71FE7FFA4006DD51E /* GameViewController.swift in Sources */,
-				E2BC8EB51FF2D11600F5BA75 /* MyUIProgressView.swift in Sources */,
 				E2B5A2FB1FE814DD006DD51E /* Extensions.swift in Sources */,
 				E2AF30AE1FEEBCFA000318C0 /* MyUIButton.swift in Sources */,
 				E2B5A2F91FE81487006DD51E /* Tile.swift in Sources */,

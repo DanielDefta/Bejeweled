@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 import AVFoundation
 
+import GameKit
 
-class MainViewController: UIViewController {
+
+class MainViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBOutlet weak var selectLevelButton: UIButton!
     @IBOutlet weak var startGame: UIButton!
@@ -19,16 +21,25 @@ class MainViewController: UIViewController {
     var startGameCenter: CGPoint!
     var selectLevelCenter: CGPoint!
     
+    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var statsButton: UIButton!
+    
+    var statsButtonCenter: CGPoint!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         MusicPlayer.sharedInstance.play(name: "Bejeweled 2")
         
         startGameCenter = startGame.center
         selectLevelCenter = selectLevelButton.center
+        statsButtonCenter = statsButton.center
         
         startGame.center.x = -1500
         selectLevelButton.center.x = -1500
+        
+        self.statsButton.translatesAutoresizingMaskIntoConstraints = true
+        statsButton.center = moreButton.center
 
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
             self.startGame.center = self.startGameCenter
@@ -42,6 +53,8 @@ class MainViewController: UIViewController {
             //self.startGame.frame.size.height = self.startGame.frame.height * 2
             //self.selectLevelButton.frame.size.height = self.selectLevelButton.frame.height * 2
         }, completion: nil)
+        
+        authPlayer()
         
     }
     
@@ -64,4 +77,79 @@ class MainViewController: UIViewController {
     //    //select level en start game
     //    selectedLevel = levelSelectionViewController.selectedLevel
     //}
+    
+    @IBAction func moreClicked(_ sender: Any) {
+        if moreButton.currentImage == #imageLiteral(resourceName: "menu-white") {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.statsButton.alpha = 1
+                
+                self.statsButton.center = self.statsButtonCenter
+                })
+            moreButton.setImage(UIImage.init(named: "menu-grey"), for: .normal)
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.statsButton.alpha = 0
+                
+                self.statsButton.center = self.moreButton.center
+            })
+            moreButton.setImage(UIImage.init(named: "menu-white"), for: .normal)
+        }
+    }
+    
+    
+    var gcLeaderBoardIdentifier = String()
+    
+    func authPlayer(){
+        let llocalPlayer = GKLocalPlayer.localPlayer()
+        
+        
+        llocalPlayer.authenticateHandler = {
+            (view, error) in
+            
+            if view != nil {
+                self.present(view!, animated: true, completion: nil)
+            }
+            else {
+                print(GKLocalPlayer.localPlayer().isAuthenticated)
+                llocalPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderBoardIdentifier: String!, error: NSError!)
+                    -> Void in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        self.gcLeaderBoardIdentifier = leaderBoardIdentifier
+                    }
+                    } as? (String?, Error?) -> Void)
+            }
+        }
+    }
+    @IBAction func save(_ sender: Any) {
+        saveHighscore(score: 333)
+    }
+    
+    func saveHighscore(score: Int) {
+        
+        if GKLocalPlayer.localPlayer().isAuthenticated {
+            let scoreReporter = GKScore(leaderboardIdentifier: gcLeaderBoardIdentifier)
+            scoreReporter.value = Int64(score)
+            
+            let scoreArray: [GKScore] = [scoreReporter]
+            
+            GKScore.report(scoreArray, withCompletionHandler: nil)
+        }
+    }
+    
+    func showLeaderboard(){
+        let gcvc = GKGameCenterViewController()
+        
+        gcvc.gameCenterDelegate = self
+        
+        self.present(gcvc, animated: true, completion: nil)
+    }
+    
+    @IBAction func showGameCenter(_ sender: Any) {
+        showLeaderboard()
+    }
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
 }

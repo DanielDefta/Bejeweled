@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="W1E-va-OwP">
-                                <rect key="frame" x="93" y="283.5" width="190" height="100"/>
+                                <rect key="frame" x="93" y="284" width="190" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysf-AT-QU3" customClass="MyUIButton" customModule="Bejeweled" customModuleProvider="target">
                                         <rect key="frame" x="46" y="0.0" width="98" height="40"/>
@@ -54,7 +54,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="presentation" identifier="startGame" modalTransitionStyle="crossDissolve" id="tYE-Sf-q8J"/>
+                                            <segue destination="BV1-FR-VrT" kind="presentation" identifier="startGame" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="tYE-Sf-q8J"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lkg-2Y-nVS" customClass="MyUIButton" customModule="Bejeweled" customModuleProvider="target">
@@ -81,26 +81,54 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="ovP-Ie-8E8" kind="presentation" identifier="selectLevel" modalTransitionStyle="crossDissolve" id="hOl-xA-7n7"/>
+                                            <segue destination="ovP-Ie-8E8" kind="presentation" identifier="selectLevel" id="hOl-xA-7n7"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLT-BK-PjX">
+                                <rect key="frame" x="167" y="545" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="OnC-PQ-TBW"/>
+                                    <constraint firstAttribute="height" constant="42" id="s46-uf-Ptr"/>
+                                </constraints>
+                                <state key="normal" image="menu-white"/>
+                                <connections>
+                                    <action selector="moreClicked:" destination="2zg-Ij-OGF" eventType="touchUpInside" id="qxQ-iu-m0p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvN-Td-RsC">
+                                <rect key="frame" x="167" y="473" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="4Us-X8-Hm0"/>
+                                    <constraint firstAttribute="height" constant="42" id="7c9-x8-jXK"/>
+                                </constraints>
+                                <state key="normal" image="stats"/>
+                                <connections>
+                                    <action selector="showGameCenter:" destination="2zg-Ij-OGF" eventType="touchUpInside" id="8c1-DK-evY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yLT-BK-PjX" firstAttribute="centerX" secondItem="7k3-YX-DU9" secondAttribute="centerX" id="2Wb-38-wqS"/>
                             <constraint firstAttribute="trailing" secondItem="0KH-Qb-oYf" secondAttribute="trailing" id="83n-wE-i1v"/>
+                            <constraint firstItem="yLT-BK-PjX" firstAttribute="top" secondItem="cvN-Td-RsC" secondAttribute="bottom" constant="30" id="8da-T1-KTf"/>
                             <constraint firstItem="0KH-Qb-oYf" firstAttribute="leading" secondItem="7k3-YX-DU9" secondAttribute="leading" id="9AY-1c-bQd"/>
                             <constraint firstAttribute="bottom" secondItem="0KH-Qb-oYf" secondAttribute="bottom" id="KSw-nL-QxE"/>
                             <constraint firstItem="0KH-Qb-oYf" firstAttribute="top" secondItem="7k3-YX-DU9" secondAttribute="top" id="KT9-D9-Cgm"/>
                             <constraint firstItem="0KH-Qb-oYf" firstAttribute="centerX" secondItem="W1E-va-OwP" secondAttribute="centerX" id="LEu-rf-9g6"/>
+                            <constraint firstItem="cvN-Td-RsC" firstAttribute="centerX" secondItem="7k3-YX-DU9" secondAttribute="centerX" id="N88-HL-6pa"/>
+                            <constraint firstItem="E43-Jy-KYK" firstAttribute="bottom" secondItem="yLT-BK-PjX" secondAttribute="bottom" constant="80" id="Sjl-GR-TEb"/>
                             <constraint firstItem="0KH-Qb-oYf" firstAttribute="centerY" secondItem="W1E-va-OwP" secondAttribute="centerY" id="qkv-P8-dlx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E43-Jy-KYK"/>
                     </view>
                     <connections>
+                        <outlet property="moreButton" destination="yLT-BK-PjX" id="CBk-Ev-aOi"/>
                         <outlet property="selectLevelButton" destination="lkg-2Y-nVS" id="ore-Xd-Ebp"/>
                         <outlet property="startGame" destination="ysf-AT-QU3" id="Jwb-SU-d74"/>
+                        <outlet property="statsButton" destination="cvN-Td-RsC" id="VLD-KV-SE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRg-7x-R2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,10 +228,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qmu-ie-joS"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="levelsCollectionView" destination="HD5-7u-OhP" id="lAS-Yh-DM8"/>
-                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="startLevel" modalTransitionStyle="crossDissolve" id="Dmv-tV-f4Z"/>
+                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="startLevel" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Dmv-tV-f4Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mf5-Nf-cpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,7 +426,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <segue destination="2zg-Ij-OGF" kind="presentation" modalTransitionStyle="crossDissolve" id="Z6B-1E-Vb8"/>
+                                                                                    <segue destination="2zg-Ij-OGF" kind="presentation" identifier="showMainMenu" id="Z6B-1E-Vb8"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcy-Og-rW6" customClass="MyUIButton" customModule="Bejeweled" customModuleProvider="target">
@@ -619,8 +646,10 @@
         <image name="Background_Level_3" width="223" height="397"/>
         <image name="Hamburger" width="42" height="42"/>
         <image name="media-shuffle" width="85" height="85"/>
+        <image name="menu-white" width="42" height="42"/>
+        <image name="stats" width="85" height="85"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tYE-Sf-q8J"/>
+        <segue reference="Dmv-tV-f4Z"/>
     </inferredMetricsTieBreakers>
 </document>
