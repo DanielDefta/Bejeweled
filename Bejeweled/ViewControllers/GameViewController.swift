@@ -26,6 +26,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var totalScore: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     
+    @IBOutlet weak var gameOverPanel: UIView!
+    @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var pauseMenu: UIView!
     @IBOutlet weak var volumeSlider: UISlider!
     
@@ -76,7 +78,7 @@ class GameViewController: UIViewController {
         scene.addTiles()
         scene.swipeHandler = handleSwipe
         
-        //gameOverPanel.hidden = true
+        gameOverPanel.isHidden = true
         progress.isHidden = true
         shuffleButtonView.isHidden = true
         pauseButtonView.isHidden = true
@@ -142,6 +144,10 @@ class GameViewController: UIViewController {
         for chain in chains {
             self.score += chain.score
             self.tScore += chain.score
+            let aantalCoins = chain.score / 10
+            try! Realm().write {
+                player.coins = aantalCoins + player.coins
+            }
         }
         self.updateLabels()
         let columns = self.level.fillHoles()
@@ -165,6 +171,10 @@ class GameViewController: UIViewController {
         for chain in chains {
             self.score += chain.score
             self.tScore += chain.score
+            let aantalCoins = chain.score / 10
+            try! Realm().write {
+                player.coins = aantalCoins + player.coins
+            }
         }
         self.updateLabels()
         let columns = self.level.fillHoles()
@@ -201,13 +211,23 @@ class GameViewController: UIViewController {
     func checkGameOver() {
         if score >= level.targetScore {
             //gameOverPanel.image = UIImage(named: "LevelComplete")
+            gameOverLabel.text = "LEVEL COMPLETE"
             currentLevelNum = currentLevelNum < NumLevels ? currentLevelNum+1 : 1
             showGameOver()
         }
+        else if level.detectPossibleSwaps() == false && player.coins < 200 {
+            gameOverLabel.text = "GAME OVER"
+            currentLevelNum = 1
+            showGameOver()
+            
+            
+        }
+        
+        
     }
     
     func showGameOver() {
-        //gameOverPanel.hidden = false
+        gameOverPanel.isHidden = false
         //pauseMenu.isHidden = false
         progress.isHidden = true
         shuffleButtonView.isHidden = true
@@ -215,23 +235,33 @@ class GameViewController: UIViewController {
         scene.isUserInteractionEnabled = false
         
         scene.animateGameOver() {
-            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideGameOver))
-            self.view.addGestureRecognizer(self.tapGestureRecognizer)
+            if self.gameOverLabel.text == "LEVEL COMPLETE"{
+                self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideGameOver))
+                self.view.addGestureRecognizer(self.tapGestureRecognizer)
+            }
         }
     }
     
     @objc func hideGameOver() {
-        view.removeGestureRecognizer(tapGestureRecognizer)
-        tapGestureRecognizer = nil
+        if self.gameOverLabel.text == "LEVEL COMPLETE"{
+            view.removeGestureRecognizer(tapGestureRecognizer)
+            tapGestureRecognizer = nil
+        }
         
-        //gameOverPanel.hidden = true
+        gameOverPanel.isHidden = true
         //pauseMenu.isHidden = true
         scene.isUserInteractionEnabled = true
         
         setupLevel(currentLevelNum)
     }
     @IBAction func shuffleButtonPressed(_ sender: Any) {
-        shuffle()
+        if player.coins >= 200 {
+            shuffle()
+            let realm = try! Realm()
+            try! realm.write {
+                player.coins = player.coins - 200
+            }
+        }
     }
     @IBAction func setVolume(_ sender: UISlider) {
         MusicPlayer.sharedInstance.setVolume(volume: sender.value, tijd: 0.5)
@@ -250,6 +280,15 @@ class GameViewController: UIViewController {
         pauseButtonView.isHidden = false
         pauseMenu.isHidden = true
         scene.isUserInteractionEnabled = true
+    }
+    
+    
+    @IBAction func restartGame(_ sender: Any) {
+        currentLevelNum = 1
+        tScore = 0
+        score = 0
+        updateLabels()
+        hideGameOver()
     }
     
 }

@@ -120,7 +120,7 @@ class Level {
         
     }
     
-    func detectPossibleSwaps() {
+    func detectPossibleSwaps() -> Bool {
         var set = Set<Swap>()
         
         for row in 0..<NumRows {
@@ -168,6 +168,12 @@ class Level {
         }
         
         possibleSwaps = set
+        
+        if( possibleSwaps.count == 0) {
+            return false
+        } else {
+            return true
+        }
     }
     
     func isPossibleSwap(_ swap: Swap) -> Bool {

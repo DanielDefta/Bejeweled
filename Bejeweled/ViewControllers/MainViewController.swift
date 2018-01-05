@@ -26,11 +26,14 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var instellingenButton: UIButton!
     @IBOutlet weak var trophyButton: UIButton!
     
+    @IBOutlet weak var coinsLabel: UILabel!
     
     var player: Player!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        coinsLabel.text = "\(player.coins)"
         
         startGameCenter = startGame.center
         selectLevelCenter = selectLevelButton.center
@@ -85,6 +88,13 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
         print("Unwind to Root View Controller")
+        
+        if segue.identifier == "backFromGame" {
+            let gameViewController = segue.source as! GameViewController
+            player = gameViewController.player
+            coinsLabel.text = "\(player.coins)"
+        }
+        
     }
     
     @IBAction func moreClicked(_ sender: Any) {
