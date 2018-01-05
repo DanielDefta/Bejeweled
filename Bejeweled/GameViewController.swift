@@ -28,6 +28,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    @IBOutlet weak var pauseButtonView: UIView!
+    @IBOutlet weak var shuffleButtonView: UIView!
     
     var levelName: String = "Level_0"
     var scene: GameScene!
@@ -71,8 +73,8 @@ class GameViewController: UIViewController {
         
         //gameOverPanel.hidden = true
         progress.isHidden = true
-        shuffleButton.isHidden = true
-        pauseButton.isHidden = true
+        shuffleButtonView.isHidden = true
+        pauseButtonView.isHidden = true
         pauseMenu.isHidden = true
         
         // Present the scene.
@@ -88,8 +90,8 @@ class GameViewController: UIViewController {
         updateLabels()
         scene.animateBeginGame() {
             self.progress.isHidden = false
-            self.shuffleButton.isHidden = false
-            self.pauseButton.isHidden = false
+            self.shuffleButtonView.isHidden = false
+            self.pauseButtonView.isHidden = false
         }
         shuffle()
     }
@@ -195,8 +197,8 @@ class GameViewController: UIViewController {
         //gameOverPanel.hidden = false
         //pauseMenu.isHidden = false
         progress.isHidden = true
-        shuffleButton.isHidden = true
-        pauseButton.isHidden = true
+        shuffleButtonView.isHidden = true
+        pauseButtonView.isHidden = true
         scene.isUserInteractionEnabled = false
         
         scene.animateGameOver() {
@@ -223,32 +225,18 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func pauseGame(_ sender: Any) {
-        shuffleButton.isHidden = true
-        pauseButton.isHidden = true
+        shuffleButtonView.isHidden = true
+        pauseButtonView.isHidden = true
         scene.isUserInteractionEnabled = false
         
         pauseMenu.isHidden = false
     }
     
     @IBAction func resume(_ sender: Any) {
-        shuffleButton.isHidden = false
-        pauseButton.isHidden = false
+        shuffleButtonView.isHidden = false
+        pauseButtonView.isHidden = false
         pauseMenu.isHidden = true
         scene.isUserInteractionEnabled = true
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "selectLevel" {
-            _ = segue.destination as! LevelSelectionViewController
-        } else if segue.identifier == "startGame" {
-            _ = segue.destination as! GameViewController
-        } else if segue.identifier == "showMainMenu" {
-            _ = segue.destination as! MainViewController
-        } else {
-            fatalError("Unknown segue")
-        }
-        
     }
     
 }

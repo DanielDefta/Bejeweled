@@ -49,7 +49,7 @@ class LevelSelectionViewController: UIViewController, UICollectionViewDelegate, 
             let gameViewController = segue.destination as! GameViewController
             gameViewController.currentLevelNum = selectedLevel
         } else {
-            fatalError("Unknown segue")
+            //fatalError("Unknown segue")
         }
     }
 }

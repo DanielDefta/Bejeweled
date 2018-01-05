@@ -23,8 +23,8 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var statsButton: UIButton!
-    
-    var statsButtonCenter: CGPoint!
+    @IBOutlet weak var instellingenButton: UIButton!
+    @IBOutlet weak var trophyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +33,21 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
         
         startGameCenter = startGame.center
         selectLevelCenter = selectLevelButton.center
-        statsButtonCenter = statsButton.center
+        
         
         startGame.center.x = -1500
         selectLevelButton.center.x = -1500
         
-        self.statsButton.translatesAutoresizingMaskIntoConstraints = true
-        statsButton.center = moreButton.center
+        statsButton.alpha = 0
+        instellingenButton.alpha = 0
+        trophyButton.alpha = 0
 
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseOut], animations: {
             self.startGame.center = self.startGameCenter
             self.selectLevelButton.center = self.selectLevelCenter
         }, completion: nil)
         
-        UIView.animate(withDuration: 1, delay: 1, options: [], animations: {
+        UIView.animate(withDuration: 1, delay: 0.5, options: [], animations: {
             self.startGame.frame.size.width = self.startGame.frame.width * 2
             self.selectLevelButton.frame.size.width = self.selectLevelButton.frame.width * 2
 
@@ -54,7 +55,7 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
             //self.selectLevelButton.frame.size.height = self.selectLevelButton.frame.height * 2
         }, completion: nil)
         
-        authPlayer()
+        //authPlayer()
         
     }
     
@@ -62,7 +63,6 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
         if segue.identifier == "selectLevel" {
             _ = segue.destination as! LevelSelectionViewController
         } else if segue.identifier == "startGame" {
-            _ = segue.destination as! GameViewController
         } else {
             fatalError("Unknown segue")
         }
@@ -78,19 +78,23 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
     //    selectedLevel = levelSelectionViewController.selectedLevel
     //}
     
+    @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
+        print("Unwind to Root View Controller")
+    }
+    
     @IBAction func moreClicked(_ sender: Any) {
         if moreButton.currentImage == #imageLiteral(resourceName: "menu-white") {
             UIView.animate(withDuration: 0.3, animations: {
                 self.statsButton.alpha = 1
-                
-                self.statsButton.center = self.statsButtonCenter
+                self.instellingenButton.alpha = 1
+                self.trophyButton.alpha = 1
                 })
             moreButton.setImage(UIImage.init(named: "menu-grey"), for: .normal)
         } else {
             UIView.animate(withDuration: 0.3, animations: {
                 self.statsButton.alpha = 0
-                
-                self.statsButton.center = self.moreButton.center
+                self.instellingenButton.alpha = 0
+                self.trophyButton.alpha = 0
             })
             moreButton.setImage(UIImage.init(named: "menu-white"), for: .normal)
         }
@@ -100,10 +104,10 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
     var gcLeaderBoardIdentifier = String()
     
     func authPlayer(){
-        let llocalPlayer = GKLocalPlayer.localPlayer()
+        let localPlayer = GKLocalPlayer.localPlayer()
         
         
-        llocalPlayer.authenticateHandler = {
+        localPlayer.authenticateHandler = {
             (view, error) in
             
             if view != nil {
@@ -111,7 +115,7 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
             }
             else {
                 print(GKLocalPlayer.localPlayer().isAuthenticated)
-                llocalPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderBoardIdentifier: String!, error: NSError!)
+                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderBoardIdentifier: String!, error: NSError!)
                     -> Void in
                     if error != nil {
                         print(error)
@@ -121,9 +125,6 @@ class MainViewController: UIViewController, GKGameCenterControllerDelegate {
                     } as? (String?, Error?) -> Void)
             }
         }
-    }
-    @IBAction func save(_ sender: Any) {
-        saveHighscore(score: 333)
     }
     
     func saveHighscore(score: Int) {
