@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85A8EAB65428FAA0FE728166 /* Pods_Bejeweled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD148BD951182B90DD9E0BDA /* Pods_Bejeweled.framework */; };
 		E22902271FE8194500E84E17 /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E22902261FE8194500E84E17 /* Level_1.json */; };
 		E229022C1FE81B3700E84E17 /* Level_11.json in Resources */ = {isa = PBXBuildFile; fileRef = E22902281FE81B3700E84E17 /* Level_11.json */; };
 		E229022E1FE81B3800E84E17 /* Level_6.json in Resources */ = {isa = PBXBuildFile; fileRef = E229022A1FE81B3700E84E17 /* Level_6.json */; };
@@ -18,6 +19,7 @@
 		E22902461FE9B03700E84E17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22902451FE9B03700E84E17 /* MainViewController.swift */; };
 		E22902481FE9B1E400E84E17 /* LevelSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22902471FE9B1E400E84E17 /* LevelSelectionViewController.swift */; };
 		E25F28F51FF41DCC0062157F /* MyUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25F28F41FF41DCC0062157F /* MyUiView.swift */; };
+		E2910C801FFFB02D000FB4C9 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2910C7F1FFFB02D000FB4C9 /* StartViewController.swift */; };
 		E2AF30AC1FEE8B84000318C0 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF30AB1FEE8B84000318C0 /* LevelCollectionViewCell.swift */; };
 		E2AF30AE1FEEBCFA000318C0 /* MyUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF30AD1FEEBCFA000318C0 /* MyUIButton.swift */; };
 		E2AF30B01FEED7BC000318C0 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF30AF1FEED7BC000318C0 /* Chain.swift */; };
@@ -52,6 +54,9 @@
 		E2BC8ED51FF30DA400F5BA75 /* Level_18.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BC8ED41FF30DA400F5BA75 /* Level_18.json */; };
 		E2BC8ED71FF30DB700F5BA75 /* Level_19.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BC8ED61FF30DB700F5BA75 /* Level_19.json */; };
 		E2BC8ED91FF30DCC00F5BA75 /* Level_20.json in Resources */ = {isa = PBXBuildFile; fileRef = E2BC8ED81FF30DCC00F5BA75 /* Level_20.json */; };
+		E2D1C89B1FFF95080010D76E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1C89A1FFF95080010D76E /* Player.swift */; };
+		E2D1C89D1FFF9B7A0010D76E /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1C89C1FFF9B7A0010D76E /* PlayerCell.swift */; };
+		E2D1C89F1FFF9F250010D76E /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D1C89E1FFF9F250010D76E /* PlayersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +77,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6118782CCC82FE99109F0743 /* Pods-Bejeweled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bejeweled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bejeweled/Pods-Bejeweled.debug.xcconfig"; sourceTree = "<group>"; };
+		BD148BD951182B90DD9E0BDA /* Pods_Bejeweled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bejeweled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB958FF511D38DC09EF8813 /* Pods-Bejeweled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bejeweled.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bejeweled/Pods-Bejeweled.release.xcconfig"; sourceTree = "<group>"; };
 		E22902261FE8194500E84E17 /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
 		E22902281FE81B3700E84E17 /* Level_11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_11.json; sourceTree = "<group>"; };
 		E229022A1FE81B3700E84E17 /* Level_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_6.json; sourceTree = "<group>"; };
@@ -83,6 +91,7 @@
 		E22902451FE9B03700E84E17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E22902471FE9B1E400E84E17 /* LevelSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectionViewController.swift; sourceTree = "<group>"; };
 		E25F28F41FF41DCC0062157F /* MyUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUiView.swift; sourceTree = "<group>"; };
+		E2910C7F1FFFB02D000FB4C9 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		E2AF30AB1FEE8B84000318C0 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 		E2AF30AD1FEEBCFA000318C0 /* MyUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUIButton.swift; sourceTree = "<group>"; };
 		E2AF30AF1FEED7BC000318C0 /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
@@ -123,6 +132,9 @@
 		E2BC8ED41FF30DA400F5BA75 /* Level_18.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level_18.json; sourceTree = "<group>"; };
 		E2BC8ED61FF30DB700F5BA75 /* Level_19.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level_19.json; sourceTree = "<group>"; };
 		E2BC8ED81FF30DCC00F5BA75 /* Level_20.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level_20.json; sourceTree = "<group>"; };
+		E2D1C89A1FFF95080010D76E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E2D1C89C1FFF9B7A0010D76E /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		E2D1C89E1FFF9F250010D76E /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A8EAB65428FAA0FE728166 /* Pods_Bejeweled.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +180,8 @@
 				E2B5A2B81FE7FFA4006DD51E /* BejeweledTests */,
 				E2B5A2C31FE7FFA4006DD51E /* BejeweledUITests */,
 				E2B5A29C1FE7FFA4006DD51E /* Products */,
+				EBE0A1C1A48CE9BE6C681B1A /* Pods */,
+				E69C419AB675AE3CDB82ACF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,29 +198,20 @@
 		E2B5A29D1FE7FFA4006DD51E /* Bejeweled */ = {
 			isa = PBXGroup;
 			children = (
+				E2D1C8991FFF94CF0010D76E /* Views */,
+				E2D1C8981FFF949B0010D76E /* GameScenes */,
+				E2D1C8971FFF948D0010D76E /* ViewControllers */,
+				E2D1C8961FFF947A0010D76E /* Model */,
 				E2B5A29E1FE7FFA4006DD51E /* AppDelegate.swift */,
-				E22902451FE9B03700E84E17 /* MainViewController.swift */,
-				E22902471FE9B1E400E84E17 /* LevelSelectionViewController.swift */,
-				E2B5A2A61FE7FFA4006DD51E /* GameViewController.swift */,
-				E2B5A2A41FE7FFA4006DD51E /* GameScene.swift */,
 				E2B5A2A81FE7FFA4006DD51E /* Main.storyboard */,
 				E2B5A2AB1FE7FFA4006DD51E /* Assets.xcassets */,
 				E2B5A2AD1FE7FFA4006DD51E /* LaunchScreen.storyboard */,
 				E2B5A2B01FE7FFA4006DD51E /* Info.plist */,
-				E2B5A2D81FE80D69006DD51E /* Level.swift */,
-				E2B5A2D61FE80C8C006DD51E /* Array2D.swift */,
-				E2B5A2D41FE80B73006DD51E /* Star.swift */,
-				E2B5A2F81FE81487006DD51E /* Tile.swift */,
-				E22902301FE8203300E84E17 /* Swap.swift */,
-				E2AF30AF1FEED7BC000318C0 /* Chain.swift */,
 				E2BC8EB21FF2C51100F5BA75 /* MusicPlayer.swift */,
 				E2B5A2FA1FE814DD006DD51E /* Extensions.swift */,
-				E2AF30AB1FEE8B84000318C0 /* LevelCollectionViewCell.swift */,
-				E2AF30AD1FEEBCFA000318C0 /* MyUIButton.swift */,
 				E2B5A2FC1FE81696006DD51E /* Levels */,
 				E22902321FE8404000E84E17 /* Sounds */,
 				E2B5A2DA1FE8116C006DD51E /* Sprites.atlas */,
-				E25F28F41FF41DCC0062157F /* MyUiView.swift */,
 			);
 			path = Bejeweled;
 			sourceTree = "<group>";
@@ -255,6 +261,68 @@
 			path = Levels;
 			sourceTree = "<group>";
 		};
+		E2D1C8961FFF947A0010D76E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2B5A2D81FE80D69006DD51E /* Level.swift */,
+				E2B5A2D61FE80C8C006DD51E /* Array2D.swift */,
+				E2B5A2D41FE80B73006DD51E /* Star.swift */,
+				E2B5A2F81FE81487006DD51E /* Tile.swift */,
+				E22902301FE8203300E84E17 /* Swap.swift */,
+				E2AF30AF1FEED7BC000318C0 /* Chain.swift */,
+				E2D1C89A1FFF95080010D76E /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2D1C8971FFF948D0010D76E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E22902451FE9B03700E84E17 /* MainViewController.swift */,
+				E22902471FE9B1E400E84E17 /* LevelSelectionViewController.swift */,
+				E2B5A2A61FE7FFA4006DD51E /* GameViewController.swift */,
+				E2D1C89E1FFF9F250010D76E /* PlayersViewController.swift */,
+				E2910C7F1FFFB02D000FB4C9 /* StartViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E2D1C8981FFF949B0010D76E /* GameScenes */ = {
+			isa = PBXGroup;
+			children = (
+				E2B5A2A41FE7FFA4006DD51E /* GameScene.swift */,
+			);
+			path = GameScenes;
+			sourceTree = "<group>";
+		};
+		E2D1C8991FFF94CF0010D76E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2AF30AD1FEEBCFA000318C0 /* MyUIButton.swift */,
+				E2AF30AB1FEE8B84000318C0 /* LevelCollectionViewCell.swift */,
+				E25F28F41FF41DCC0062157F /* MyUiView.swift */,
+				E2D1C89C1FFF9B7A0010D76E /* PlayerCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E69C419AB675AE3CDB82ACF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD148BD951182B90DD9E0BDA /* Pods_Bejeweled.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBE0A1C1A48CE9BE6C681B1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6118782CCC82FE99109F0743 /* Pods-Bejeweled.debug.xcconfig */,
+				DAB958FF511D38DC09EF8813 /* Pods-Bejeweled.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,9 +330,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2B5A2C91FE7FFA4006DD51E /* Build configuration list for PBXNativeTarget "Bejeweled" */;
 			buildPhases = (
+				2C0695A950156B83C890D623 /* [CP] Check Pods Manifest.lock */,
 				E2B5A2971FE7FFA4006DD51E /* Sources */,
 				E2B5A2981FE7FFA4006DD51E /* Frameworks */,
 				E2B5A2991FE7FFA4006DD51E /* Resources */,
+				DB8FE66364DCC3B7506BD93B /* [CP] Embed Pods Frameworks */,
+				FA68AC29294EC58EBE8FFA12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -408,6 +479,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C0695A950156B83C890D623 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bejeweled-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8FE66364DCC3B7506BD93B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bejeweled/Pods-Bejeweled-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bejeweled/Pods-Bejeweled-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA68AC29294EC58EBE8FFA12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bejeweled/Pods-Bejeweled-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E2B5A2971FE7FFA4006DD51E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -418,9 +545,12 @@
 				E2B5A2A51FE7FFA4006DD51E /* GameScene.swift in Sources */,
 				E2AF30AC1FEE8B84000318C0 /* LevelCollectionViewCell.swift in Sources */,
 				E2B5A2A71FE7FFA4006DD51E /* GameViewController.swift in Sources */,
+				E2910C801FFFB02D000FB4C9 /* StartViewController.swift in Sources */,
 				E2B5A2FB1FE814DD006DD51E /* Extensions.swift in Sources */,
+				E2D1C89F1FFF9F250010D76E /* PlayersViewController.swift in Sources */,
 				E2AF30AE1FEEBCFA000318C0 /* MyUIButton.swift in Sources */,
 				E2B5A2F91FE81487006DD51E /* Tile.swift in Sources */,
+				E2D1C89D1FFF9B7A0010D76E /* PlayerCell.swift in Sources */,
 				E2BC8EB31FF2C51100F5BA75 /* MusicPlayer.swift in Sources */,
 				E2B5A29F1FE7FFA4006DD51E /* AppDelegate.swift in Sources */,
 				E2AF30B01FEED7BC000318C0 /* Chain.swift in Sources */,
@@ -428,6 +558,7 @@
 				E2B5A2D71FE80C8C006DD51E /* Array2D.swift in Sources */,
 				E22902311FE8203300E84E17 /* Swap.swift in Sources */,
 				E22902461FE9B03700E84E17 /* MainViewController.swift in Sources */,
+				E2D1C89B1FFF95080010D76E /* Player.swift in Sources */,
 				E25F28F51FF41DCC0062157F /* MyUiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +723,7 @@
 		};
 		E2B5A2CA1FE7FFA4006DD51E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6118782CCC82FE99109F0743 /* Pods-Bejeweled.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -608,6 +740,7 @@
 		};
 		E2B5A2CB1FE7FFA4006DD51E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB958FF511D38DC09EF8813 /* Pods-Bejeweled.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
